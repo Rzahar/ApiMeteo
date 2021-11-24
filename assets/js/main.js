@@ -25,7 +25,8 @@ function weatherCast() {
      name.innerHTML = value.city.name;
       abscisse.innerHTML = value.city.coord.lat;
       ordonnee.innerHTML = value.city.coord.lon;
-backgroundWp;
+      let weather = value.list[12].weather[0].main;
+backgroundWp(weather);
         
 // On créé une boucle de valeurs qu'on va injecter dans nos cards
       // heure
@@ -38,17 +39,17 @@ backgroundWp;
     });
 }
 
-// Création d'une fonction pour changer le background
-function backgroundWp(){
-    if (value.list[12].weather[0].main = "Rain") {
-        document.body.style.background = "url('../wallpaper/sunny.jpg')";
-    } else if (value.list[12].weather[0].main = "Sunny") {
-        document.body.style.background == "url('../wallpaper/sunny.jpg')";
-    } else if (value.list[12].weather[0].main = "Cloudy") {
-        document.body.style.background == "url('../wallpaper/cloudy.jpg')";
-    } else if (value.list[12].weather[0].main = "Snow") {
-        document.body.style.background == "url('../wallpaper/snow.jpg')";
-    } else {document.body.style.background == "url('../wallpaper/ctulhu.jpg')"};}
+// Création d'une fonction pour changer le background en fonction de la météo (Pluie, soleil, nuageux, neige, "autre")
+function backgroundWp(weather){
+    if (weather == "Rain") {
+        wallpaperId.style.backgroundImage = "url('pluie.jpg')";
+    } else if (weather = "Sunny") {
+        document.body.style.background == "url('sunny.jpg')";
+    } else if (weather = "Cloudy") {
+        document.body.style.background == "url('cloudy.jpg')";
+    } else if (weather = "Snow") {
+        document.body.style.background == "url('snow.jpg')";
+    } else {weather == "url('../wallpaper/ctulhu.jpg')"};}
 
 
 // On cible le bouton ayant l'id "localisation"...
