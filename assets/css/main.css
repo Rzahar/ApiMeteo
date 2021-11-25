@@ -8,31 +8,40 @@ body {
 }
 
 h1 {
-    text-align: center;
-    color: white;
+  color: white;
+  margin-left: 32%;
 }
 #banner {
   margin-top: 2em;
   background-repeat: no-repeat;
   text-align: center;
   vertical-align: middle;
-  height: 20em;
+  height: 15em;
   margin-left: 25%;
-  width: 50%;
+  width: 40%;
+  border-radius: 50%;
+  font-size: large;
 }
 
 #input {
-  margin-top: 6em;
+  margin-top: 3em;
+  font-size: 20px;
+}
+
+#localisation {
+   height: 2em;
 }
 #cards {
+  margin-top: 2em;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .card {
   border: solid 1px blue;
   text-align: center;
-  width: 30%;
+  width: 25%;
   border-radius: 30%;
   background: rgb(171, 172, 186);
   background: linear-gradient(
@@ -40,7 +49,7 @@ h1 {
     rgba(171, 172, 186, 1) 0%,
     rgba(58, 58, 158, 1) 100%
   );
-  margin: 1em;
+  margin: 4vh;
 }
 
 .dateDay {

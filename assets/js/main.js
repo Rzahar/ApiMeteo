@@ -21,17 +21,16 @@ function weatherCast() {
       }
     })
     .then(function (value) {
-      //On insert les infos dans nos innerHTML
+      //On insert les infos issues du fetch dans nos innerHTML
       name.innerHTML = "Ville sélectionnée : " + value.city.name;
       abscisse.innerHTML = "Latitude : " + value.city.coord.lat;
       ordonnee.innerHTML = "Longitude : " + value.city.coord.lon;
       temperature.innerHTML =
         "Temperature actuelle : " + value.list[0].main.temp;
-      // On cible le premier élément du tableau (heure actuelle) et on appelle nos fonctions
+      // On cible le premier élément du tableau et on appelle nos fonctions
       let weather = value.list[0].weather[0].main;
       backgroundWp(weather);
       boucleTemp(value);
-      // backgroundCard(weather);
     })
     .catch(function (error) {
       console.log(error);
@@ -71,14 +70,17 @@ function boucleTemp(value) {
 
     //Creation de l'élément affichant l'heure et date
     let date = value.list[i].dt_txt;
+    // L'élément donnant un tableau à deux valeurs, on le split ...
     let dateTime = date.split(" ");
     let time = document.createElement("p");
     time.setAttribute("class", "time");
+  // ... On récupère le premier tableau (affichant l'heure)
     time.innerHTML = " Heure : " + dateTime[1];
     div.appendChild(time);
 
     let dateDay = document.createElement("p");
     dateDay.setAttribute("class", "dateDay");
+      // ... Puis le 2° tableau (affichant la date)
     dateDay.innerHTML = "Date : " + dateTime[0];
     div.appendChild(dateDay);
   }
@@ -102,6 +104,11 @@ function backgroundCard(value, car) {
   }
 }
 
+function errorCatch() {
+  if (input == "") {
+    alert("toto");
+  }
+}
 // On cible le bouton ayant l'id "localisation"...
 let clickBtn = document.querySelector("#localisation");
 // ... Pour y activer notre fonction météo
