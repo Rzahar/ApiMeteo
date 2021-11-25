@@ -1,13 +1,18 @@
 #currentCity {
-    height: 300px;
-    width: 500px;
-    background-repeat: no-repeat;
-    
+  height: 300px;
+  width: 500px;
+  background-repeat: no-repeat;
 }
 
-.tempCard {
-    background-color: red;
-    width: 2em;
-    height: 2em;
-    margin: 2em;
+#cards {
+  border: solid 1px blue;
+  display: flex;
+}
+
+#card {
+  display: flex;
+}
+
+#currentCity {
+  background-size: cover;
 }

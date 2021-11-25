@@ -10,7 +10,8 @@ let card = document.querySelector("#card");
 
 //On instancie une fonction Weathercast qui va interroger l'API et récupérer les infos voulues
 function weatherCast() {
-  fetch("http://api.openweathermap.org/data/2.5/forecast?&exclude=minutely&units=metric&lang=fr&q=" +
+  fetch(
+    "http://api.openweathermap.org/data/2.5/forecast?&exclude=minutely&units=metric&lang=fr&q=" +
       input.value +
       "&appid=16e15173626eeca84da853256d0d3452"
   )
@@ -25,18 +26,14 @@ function weatherCast() {
       name.innerHTML = "Ville sélectionnée : " + value.city.name;
       abscisse.innerHTML = "Latitude : " + value.city.coord.lat;
       ordonnee.innerHTML = "Longitude : " + value.city.coord.lon;
-      temperature.innerHTML = "Temperature actuelle : " + value.list[0].main.temp;
+      temperature.innerHTML =
+        "Temperature actuelle : " + value.list[0].main.temp;
 
-      let weather = value.list[12].weather[0].main;
+        // On cible le premier élément du tableau (heure actuelle) et on appelle nos fonctions
+      let weather = value.list[0].weather[0].main;
       backgroundWp(weather);
-   boucleTemp(value);
-
-    
-      // heure
-      // humidité value.list[12].weather.humidity.main
-      // temperature
-    }
-    )
+      boucleTemp(value);
+    })
     .catch(function (error) {
       console.log(error);
     });
@@ -46,30 +43,35 @@ function weatherCast() {
 function backgroundWp(weather) {
   if (weather == "Rain") {
     wallpaperId.style.backgroundImage = "url('pluie.jpg')";
-  } else if ((weather = "Sunny")) {
-    document.body.style.background == "url('sunny.jpg')";
-  } else if ((weather = "Cloudy")) {
-    document.body.style.background == "url('cloudy.jpg')";
-  } else if ((weather = "Snow")) {
-    document.body.style.background == "url('snow.jpg')";
+  } else if (weather == "Sunny") {
+    wallpaperId.style.background = "url('sunny.jpg')";
+  } else if (weather == "Cloudy") {
+    wallpaperId.style.background = "url('cloudy.jpg')";
+  } else if (weather == "Snow") {
+    wallpaperId.style.background = "url('snow.jpg')";
   } else {
-    weather == "url('../wallpaper/ctulhu.jpg')";
+    wallpaperId.style.background = "url('ctulhu.jpg')";
   }
 }
 
 // Fonction visant à créer une boucle sur les différents créneaux horaires (+3h)
-function boucleTemp(value){
+function boucleTemp(value) {
   for (var i = 0; i < value.list.length; i++) {
-
     //Creation de l'element affichant la temperature
     let toto = document.createElement("p");
-    toto.setAttribute("class","tempCard")
-    toto.innerHTML = "Température : " + value.list[i].main.temp;
+    toto.setAttribute("class", "tempCard");
+    toto.innerHTML = "Température : " + value.list[i].main.temp + " degrés";
     card.appendChild(toto);
 
-
-  }}
-
+    //Creation de l'élément affichant l'heure
+    let date = value.list[i].dt_txt;
+    let dateTime = date.split(" ");
+    let time = document.createElement("p");
+    time.setAttribute("class", "time");
+    time.innerHTML = " Heure : " + dateTime[1];
+    card.appendChild(time);
+  }
+}
 
 // On cible le bouton ayant l'id "localisation"...
 let clickBtn = document.querySelector("#localisation");
