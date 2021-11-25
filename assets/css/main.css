@@ -4,3 +4,10 @@
     background-repeat: no-repeat;
     
 }
+
+.tempCard {
+    background-color: red;
+    width: 2em;
+    height: 2em;
+    margin: 2em;
+}
