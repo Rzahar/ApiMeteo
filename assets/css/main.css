@@ -1,18 +1,48 @@
-#currentCity {
-  height: 300px;
-  width: 500px;
+body {
+  background: rgb(238, 174, 202);
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 148, 233, 1) 100%
+  );
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+#banner {
+  margin-top: 2em;
   background-repeat: no-repeat;
+  text-align: center;
+  vertical-align: middle;
+  height: 20em;
+  margin-left: 25%;
+  width: 50%;
 }
 
+#input {
+  margin-top: 6em;
+}
 #cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
   border: solid 1px blue;
-  display: flex;
+  text-align: center;
+  width: 30%;
+  border-radius: 30%;
+  background: rgb(171, 172, 186);
+  background: linear-gradient(
+    90deg,
+    rgba(171, 172, 186, 1) 0%,
+    rgba(58, 58, 158, 1) 100%
+  );
+  margin: 1em;
 }
 
-#card {
-  display: flex;
-}
-
-#currentCity {
-  background-size: cover;
+.dateDay {
+  font-size: x-large;
 }
